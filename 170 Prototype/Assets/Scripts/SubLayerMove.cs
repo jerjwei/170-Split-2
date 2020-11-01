@@ -8,13 +8,16 @@ public class SubLayerMove : MonoBehaviour
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer2;
+    public GameObject subLayer3;
 
     Vector3 mainScene = new Vector3(0,0,0);
     Vector3 subStart1;
     Vector3 subStart2;
+    Vector3 subStart3;
 
     float move1 = 0f;
     float move2 = 0f;
+    float move3 = 0f;
 
     // Update is called once per frame
     private void Update()
@@ -36,6 +39,12 @@ public class SubLayerMove : MonoBehaviour
           move2 = 0f;
         }
       }
+      else if(move3 != 0f){
+        subLayer3.transform.Translate(move2/2f,0,0);
+        if(subLayer3.transform.position == mainScene || subLayer3.transform.position == subStart3){
+          move3 = 0f;
+        }
+      }
       else if(cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap")){
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -55,6 +64,13 @@ public class SubLayerMove : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.X)){
           subStart2 =  subLayer2.transform.position;
           move2 = -0.25f;
+        }
+        if(subLayer3.transform.position == mainScene && Input.GetKeyDown(KeyCode.Z)){
+          move3 = 0.25f;
+        }
+        else if(Input.GetKeyDown(KeyCode.Z)){
+          subStart3 =  subLayer3.transform.position;
+          move3 = -0.25f;
         }
       }
     }

@@ -22,5 +22,15 @@ public class isSubLayerMoving : MonoBehaviour
           t.GetComponent<BoxCollider2D>().enabled = true;
         }
       }
+      if(layer.transform.position.x != 0f && layer.transform.position.x != initialy){
+        foreach (Transform t in layer.transform) {
+          t.GetComponent<BoxCollider2D>().enabled = false;
+        }
+      }
+      else{
+        foreach (Transform t in layer.transform) {
+          t.GetComponent<BoxCollider2D>().enabled = true;
+        }
+      }
     }
 }
