@@ -40,7 +40,7 @@ public class SubLayerMove : MonoBehaviour
         }
       }
       else if(move3 != 0f){
-        subLayer3.transform.Translate(move2/2f,0,0);
+        subLayer3.transform.Translate(move3/2f,0,0);
         if(subLayer3.transform.position == mainScene || subLayer3.transform.position == subStart3){
           move3 = 0f;
         }
