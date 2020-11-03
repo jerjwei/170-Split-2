@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - Border
+  - 
+  - 
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: top
+    uniqueID: 628839151
     locked: 0
