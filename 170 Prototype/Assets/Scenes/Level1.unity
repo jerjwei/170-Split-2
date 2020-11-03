@@ -289,7 +289,6 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   subLayer1: {fileID: 707175532}
   subLayer2: {fileID: 1961180206}
-  subLayer3: {fileID: 0}
 --- !u!1 &351920984
 GameObject:
   m_ObjectHideFlags: 0

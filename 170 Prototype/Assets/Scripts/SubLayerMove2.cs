@@ -10,7 +10,7 @@ public class SubLayerMove2 : MonoBehaviour
     public GameObject subLayer2;
     public GameObject subLayer3;
 
-    Vector3 mainScene = new Vector3(14,-9.5f,0);
+    Vector3 mainScene = new Vector3(0,0,0);
     Vector3 subStart1;
     Vector3 subStart2;
     Vector3 subStart3;
@@ -19,6 +19,12 @@ public class SubLayerMove2 : MonoBehaviour
     float move2 = 0f;
     float move3 = 0f;
 
+    private void Start()
+    {
+      subStart1 = subLayer1.transform.position;
+      subStart2 = subLayer2.transform.position;
+      subStart3 = subLayer3.transform.position;
+    }
     // Update is called once per frame
     private void Update()
     {
@@ -29,7 +35,7 @@ public class SubLayerMove2 : MonoBehaviour
       else if(move1 != 0f)
       {
         subLayer1.transform.Translate(0,move1/2f,0);
-        if(subLayer1.transform.position.y == mainScene.y + 37 || subLayer1.transform.position == subStart1){
+        if(subLayer1.transform.position.y == mainScene.y || subLayer1.transform.position == subStart1){
           move1 = 0f;
         }
       }
@@ -51,25 +57,22 @@ public class SubLayerMove2 : MonoBehaviour
         cam.orthographicSize = 10f;
       }
       else if(cam.orthographicSize == 35f){
-        if(subLayer1.transform.position.y == mainScene.y + 37 && Input.GetKeyDown(KeyCode.C)){
+        if(subLayer1.transform.position.y == mainScene.y && Input.GetKeyDown(KeyCode.C)){
           move1 = -0.25f;
         }
         else if(Input.GetKeyDown(KeyCode.C)){
-          subStart1 =  subLayer1.transform.position;
           move1 = 0.25f;
         }
-        if(subLayer2.transform.position.y == mainScene.y + 37 && Input.GetKeyDown(KeyCode.X)){
+        if(subLayer2.transform.position.y == mainScene.y && Input.GetKeyDown(KeyCode.X)){
           move2 = 0.25f;
         }
         else if(Input.GetKeyDown(KeyCode.X)){
-          subStart2 =  subLayer2.transform.position;
           move2 = -0.25f;
         }
         if(subLayer3.transform.position.x == mainScene.x && Input.GetKeyDown(KeyCode.Z)){
           move3 = 0.25f;
         }
         else if(Input.GetKeyDown(KeyCode.Z)){
-          subStart3 =  subLayer3.transform.position;
           move3 = -0.25f;
         }
       }

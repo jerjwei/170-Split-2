@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,16 +13,6 @@ public class isSubLayerMoving : MonoBehaviour
     void Update()
     {
       if(layer.transform.position.y != 0f && layer.transform.position.y != initialy){
-        foreach (Transform t in layer.transform) {
-          t.GetComponent<BoxCollider2D>().enabled = false;
-        }
-      }
-      else{
-        foreach (Transform t in layer.transform) {
-          t.GetComponent<BoxCollider2D>().enabled = true;
-        }
-      }
-      if(layer.transform.position.x != 0f && layer.transform.position.x != initialy){
         foreach (Transform t in layer.transform) {
           t.GetComponent<BoxCollider2D>().enabled = false;
         }
