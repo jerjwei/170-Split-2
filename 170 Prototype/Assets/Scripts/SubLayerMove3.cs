@@ -12,6 +12,7 @@ public class SubLayerMove3 : MonoBehaviour
     public GameObject subLayer1Sprite2;
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
+    public GameObject collectible;
 
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
@@ -19,6 +20,12 @@ public class SubLayerMove3 : MonoBehaviour
 
     float move1 = 0f;
     float move2 = 0f;
+
+    private void Start()
+    {
+      subStart1 = subLayer1.transform.position;
+      subStart2 = subLayer2.transform.position;
+    }
 
     // Update is called once per frame
     private void Update()
@@ -44,6 +51,17 @@ public class SubLayerMove3 : MonoBehaviour
                 move2 = 0f;
             }
         }
+        else if (subLayer1.transform.position == mainScene && subLayer2.transform.position == mainScene
+          && subLayer1Sprite1.activeSelf && subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 1
+          && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 0)
+        {
+            subLayer1Sprite1.SetActive(false);
+            subLayer2Sprite2.SetActive(false);
+            collectible.SetActive(true);
+            foreach (Transform t in collectible.transform) {
+              t.GetComponent<SpriteRenderer>().sortingOrder = 4;
+            }
+        }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
         {
             rb.constraints = RigidbodyConstraints2D.None;
@@ -58,7 +76,6 @@ public class SubLayerMove3 : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.C) && (move1 == 0f))
             {
-                subStart1 = subLayer1.transform.position;
                 move1 = 0.25f;
                 subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 3;
                 subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 3;
@@ -71,7 +88,6 @@ public class SubLayerMove3 : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.X) && (move2 == 0f))
             {
-                subStart2 = subLayer2.transform.position;
                 move2 = -0.25f;
                 subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;

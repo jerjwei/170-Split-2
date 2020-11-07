@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
   public float jumpForce = 12f;
   public Transform feet;
   public LayerMask groundLayers;
+  public Collider2D player;
+  public GameObject collectible;
 
   float mx;
 
@@ -18,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
     if(Input.GetButtonDown("Jump") && IsGrounded()){
       Jump();
+    }
+    if(DoCollect())
+    {
+      print("yay");
+      collectible.SetActive(false);
     }
   }
 
@@ -38,6 +45,9 @@ public class PlayerMovement : MonoBehaviour
     Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers);
 
     return groundCheck != null;
+  }
 
+  public bool DoCollect(){
+    return player.IsTouching(collectible.GetComponent<Collider2D>());
   }
 }
