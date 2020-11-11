@@ -274,7 +274,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 315913045}
-  collectiable: {fileID: 0}
+  collectible: {fileID: 1227151070}
 --- !u!114 &315913048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,7 +1149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1227151071
 BoxCollider2D:
   m_ObjectHideFlags: 0
