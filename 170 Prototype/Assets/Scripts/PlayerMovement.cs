@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
   public float movementSpeed;
   public Rigidbody2D rb;
-
   public float jumpForce = 12f;
   public Transform feet;
   public LayerMask groundLayers;
@@ -25,6 +25,16 @@ public class PlayerMovement : MonoBehaviour
     {
       print("yay");
       collectible.SetActive(false);
+    }
+  }
+
+  private void OnTriggerEnter2D(Collider2D col){
+    // if collide with trap
+    if(col.tag == "Trap"){
+      // reload the scene
+      Scene scene;
+      scene = SceneManager.GetActiveScene();
+      SceneManager.LoadScene(scene.name);
     }
   }
 
