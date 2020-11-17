@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
       scene = SceneManager.GetActiveScene();
       SceneManager.LoadScene(scene.name);
     }
+
   }
 
   private void FixedUpdate() {

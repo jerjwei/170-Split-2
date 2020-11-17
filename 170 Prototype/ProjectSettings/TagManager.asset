@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Metaball_liquid
   - Trap
+  - SecondaryCam
+  - trapdoor
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - 
   - Ground
   - Collect
-  - 
-  - 
+  - Player
+  - PressurePlate
   - 
   - 
   - 

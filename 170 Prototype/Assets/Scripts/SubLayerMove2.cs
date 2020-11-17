@@ -5,7 +5,8 @@ using UnityEngine;
 public class SubLayerMove2 : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public Camera cam;
+    public Camera mainCam;
+    public Camera effectCam;
     public GameObject subLayer1;
     public GameObject subLayer2;
     public GameObject subLayer3;
@@ -28,9 +29,10 @@ public class SubLayerMove2 : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-      if(Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f){
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-        cam.orthographicSize = 35f;
+      if(Input.GetKeyDown(KeyCode.M) && mainCam.orthographicSize == 10f){
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        mainCam.orthographicSize = 35f;
+        effectCam.orthographicSize = 35f;
       }
       else if(move1 != 0f)
       {
@@ -51,12 +53,13 @@ public class SubLayerMove2 : MonoBehaviour
           move3 = 0f;
         }
       }
-      else if(cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap")){
+      else if(mainCam.orthographicSize == 35f && Input.GetKeyDown(KeyCode.M)){
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        cam.orthographicSize = 10f;
+        mainCam.orthographicSize = 10f;
+        effectCam.orthographicSize = 10f;
       }
-      else if(cam.orthographicSize == 35f){
+      else if(mainCam.orthographicSize == 35f){
         if(subLayer1.transform.position.y == mainScene.y && Input.GetKeyDown(KeyCode.C)){
           move1 = -0.25f;
         }
