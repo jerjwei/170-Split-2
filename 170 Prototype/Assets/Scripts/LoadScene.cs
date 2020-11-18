@@ -10,6 +10,8 @@ public class LoadScene : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collison){
-        SceneManager.LoadScene(nextScene);
+        if(collison.tag == "Player") { 
+            SceneManager.LoadScene(nextScene);
+            }
     }
 }
