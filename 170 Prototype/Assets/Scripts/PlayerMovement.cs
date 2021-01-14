@@ -5,21 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-  public float movementSpeed;
+  //RigidBody
   public Rigidbody2D rb;
+
+  //Horizontal Movement Variables
+  [Range(0, 1)]
+  public float horizontalDampBasic = 0.5f;
+  [Range(0, 1)]
+  public float horizontalDampWhenStopping = 0.5f;
+  [Range(0, 1)]
+  public float horizontalDampWhenTurning = 0.5f;
+
+  //Vertical Movement Variables
   public float jumpForce = 12f;
+  [Range(0,1)]
+  public float jumpHeightReduce = 0.5f;
+
+  //Platform Collision Variables
   public Transform feet;
   public LayerMask groundLayers;
   public Collider2D player;
   public GameObject collectible;
 
-  float mx;
+  private void Start() {
+
+    rb = GetComponent<Rigidbody2D>();  
+
+  }
 
   private void Update(){
-    mx = Input.GetAxisRaw("Horizontal");
 
+    //Check if Space is pressed down and touching the ground at the same time
     if(Input.GetButtonDown("Jump") && IsGrounded()){
-      Jump();
+      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+    //Check if Space is released up before it reached the maximum jump height
+    if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
+      rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
     }
     if(DoCollect())
     {
@@ -41,17 +63,22 @@ public class PlayerMovement : MonoBehaviour
 
   private void FixedUpdate() {
 
-    Vector2 movement = new Vector2(mx * movementSpeed, rb.velocity.y);
+    float horizontalVelocity = rb.velocity.x;
+    horizontalVelocity += Input.GetAxisRaw("Horizontal");
 
-    rb.velocity = movement;
+    if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f){
+      horizontalVelocity *= Mathf.Pow(1f - horizontalDampWhenStopping, Time.deltaTime * 10f);
+    }
+    else if(Mathf.Sign(Input.GetAxisRaw("Horizontal")) != Mathf.Sign(horizontalVelocity)){
+      horizontalVelocity *= Mathf.Pow(1f - horizontalDampWhenTurning, Time.deltaTime * 10f);
+    }
+    else{
+      horizontalVelocity *= Mathf.Pow(1f - horizontalDampBasic, Time.deltaTime * 10f);
+    }
+
+    rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
   }
-
-  void Jump(){
-    Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
-
-    rb.velocity = movement;
-  }
-
+  
   public bool IsGrounded(){
     Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers);
 
