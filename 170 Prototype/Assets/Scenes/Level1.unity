@@ -266,9 +266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d5d09e9848a456592d63de33ed515d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
   rb: {fileID: 315913044}
+  horizontalDampBasic: 0.3
+  horizontalDampWhenStopping: 0.5
+  horizontalDampWhenTurning: 0.5
   jumpForce: 20
+  jumpHeightReduce: 0.5
   feet: {fileID: 2068406056}
   groundLayers:
     serializedVersion: 2
