@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
   public LayerMask groundLayers;
   public Collider2D player;
   public GameObject collectible;
+  public GameObject collectible2;
+  public GameObject collectible3;
 
   private void Start() {
 
@@ -43,10 +45,17 @@ public class PlayerMovement : MonoBehaviour
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
       rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
     }
-    if(DoCollect())
+    if (player.IsTouching(collectible.GetComponent<Collider2D>()))
     {
-      print("yay");
       collectible.SetActive(false);
+    }
+    if (player.IsTouching(collectible2.GetComponent<Collider2D>()))
+    {
+      collectible2.SetActive(false);
+    }
+    if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
+    {
+      collectible3.SetActive(false);
     }
   }
 
@@ -85,7 +94,4 @@ public class PlayerMovement : MonoBehaviour
     return groundCheck != null;
   }
 
-  public bool DoCollect(){
-    return player.IsTouching(collectible.GetComponent<Collider2D>());
-  }
 }

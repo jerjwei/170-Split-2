@@ -8,11 +8,16 @@ public class SubLayerMove3 : MonoBehaviour
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer2;
+    public GameObject subLayer3;
     public GameObject subLayer1Sprite1;
     public GameObject subLayer1Sprite2;
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
+    
     public GameObject collectible;
+    public GameObject collectible2;
+    public GameObject collectible3;
+
 
     Vector3 mainScene = new Vector3(0, 0, 0);
     Vector3 subStart1;
@@ -30,6 +35,8 @@ public class SubLayerMove3 : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
+
         if (Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
@@ -52,14 +59,25 @@ public class SubLayerMove3 : MonoBehaviour
             }
         }
         else if (subLayer1.transform.position == mainScene && subLayer2.transform.position == mainScene
-          && subLayer1Sprite1.activeSelf && subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 1
+          && subLayer1Sprite1.activeSelf &&  subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 1
           && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 0)
         {
             subLayer1Sprite1.SetActive(false);
             subLayer2Sprite2.SetActive(false);
+            
+            collectible2.SetActive(true);
+            collectible3.SetActive(true);
             collectible.SetActive(true);
             foreach (Transform t in collectible.transform) {
               t.GetComponent<SpriteRenderer>().sortingOrder = 4;
+            }
+            foreach (Transform x in collectible2.transform)
+            {
+                x.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            }
+            foreach (Transform y in collectible3.transform)
+            {
+                y.GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
         }
         else if (cam.orthographicSize == 35f && Input.GetButtonDown("ShowMap"))
