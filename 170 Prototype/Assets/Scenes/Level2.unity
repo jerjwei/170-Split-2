@@ -384,10 +384,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 315913044}
-  horizontalDampBasic: 0.5
+  movementSpeed: 1
+  horizontalDampBasic: 0.3
   horizontalDampWhenStopping: 0.5
   horizontalDampWhenTurning: 0.5
-  jumpForce: 22
+  jumpForce: 20
   jumpHeightReduce: 0.5
   feet: {fileID: 2068406056}
   groundLayers:

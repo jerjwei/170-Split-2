@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 315913044}
+  movementSpeed: 1
   horizontalDampBasic: 0.3
   horizontalDampWhenStopping: 0.5
   horizontalDampWhenTurning: 0.5
@@ -280,6 +281,7 @@ MonoBehaviour:
   collectible: {fileID: 0}
   collectible2: {fileID: 0}
   collectible3: {fileID: 0}
+  dialogueBox: {fileID: 0}
 --- !u!114 &315913047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2086,6 +2088,11 @@ PrefabInstance:
     - target: {fileID: 641894726943010231, guid: 091e4cda65f4ff84b878200272905ce2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 641894727066086905, guid: 091e4cda65f4ff84b878200272905ce2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

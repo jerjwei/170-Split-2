@@ -2939,7 +2939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1610014386}
-  horizontalDampBasic: 0.5
+  movementSpeed: 1
+  horizontalDampBasic: 0.3
   horizontalDampWhenStopping: 0.5
   horizontalDampWhenTurning: 0.5
   jumpForce: 20
@@ -2952,6 +2953,7 @@ MonoBehaviour:
   collectible: {fileID: 1428515786}
   collectible2: {fileID: 0}
   collectible3: {fileID: 0}
+  dialogueBox: {fileID: 0}
 --- !u!50 &1610014386
 Rigidbody2D:
   serializedVersion: 4

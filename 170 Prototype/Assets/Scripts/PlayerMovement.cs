@@ -9,15 +9,17 @@ public class PlayerMovement : MonoBehaviour
   public Rigidbody2D rb;
 
   //Horizontal Movement Variables
+  [Range(0, 2)]
+  public float movementSpeed = 1f;
   [Range(0, 1)]
-  public float horizontalDampBasic = 0.5f;
+  public float horizontalDampBasic = 0.3f;
   [Range(0, 1)]
   public float horizontalDampWhenStopping = 0.5f;
   [Range(0, 1)]
   public float horizontalDampWhenTurning = 0.5f;
 
   //Vertical Movement Variables
-  public float jumpForce = 12f;
+  public float jumpForce = 20f;
   [Range(0,1)]
   public float jumpHeightReduce = 0.5f;
 
@@ -46,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
       rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpHeightReduce);
     }
+
+    //Check for collectable
     if (player.IsTouching(collectible.GetComponent<Collider2D>()))
     {
       collectible.SetActive(false);
@@ -74,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
   private void FixedUpdate() {
 
-    float horizontalVelocity = rb.velocity.x;
+    float horizontalVelocity = rb.velocity.x * movementSpeed;
     horizontalVelocity += Input.GetAxisRaw("Horizontal");
 
     if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f){
