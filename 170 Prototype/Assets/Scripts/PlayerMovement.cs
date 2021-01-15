@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
   public GameObject collectible;
   public GameObject collectible2;
   public GameObject collectible3;
+  public GameObject dialogueBox;
 
   private void Start() {
 
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
     {
       collectible3.SetActive(false);
+      //rb.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
   }
 

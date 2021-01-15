@@ -14,6 +14,7 @@ public class SubLayerMove3 : MonoBehaviour
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
     
+    
     public GameObject collectible;
     public GameObject collectible2;
     public GameObject collectible3;
