@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
   private void Start() {
 
-    rb = GetComponent<Rigidbody2D>();  
+    rb = GetComponent<Rigidbody2D>();
 
   }
 
@@ -93,9 +93,9 @@ public class PlayerMovement : MonoBehaviour
 
     rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
   }
-  
+
   public bool IsGrounded(){
-    Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers);
+    Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.8f, groundLayers);
 
     return groundCheck != null;
   }
