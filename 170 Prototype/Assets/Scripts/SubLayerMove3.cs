@@ -13,8 +13,8 @@ public class SubLayerMove3 : MonoBehaviour
     public GameObject subLayer1Sprite2;
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
-    
-    
+
+
     public GameObject collectible;
     public GameObject collectible2;
     public GameObject collectible3;
@@ -60,12 +60,12 @@ public class SubLayerMove3 : MonoBehaviour
             }
         }
         else if (subLayer1.transform.position == mainScene && subLayer2.transform.position == mainScene
-          && subLayer1Sprite1.activeSelf &&  subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 1
-          && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 0)
+          && subLayer1Sprite1.activeSelf &&  subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder == 2
+          && subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder == 1)
         {
             subLayer1Sprite1.SetActive(false);
             subLayer2Sprite2.SetActive(false);
-            
+
             collectible2.SetActive(true);
             collectible3.SetActive(true);
             collectible.SetActive(true);
@@ -96,10 +96,10 @@ public class SubLayerMove3 : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.C) && (move1 == 0f))
             {
                 move1 = 0.25f;
-                subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
             if (subLayer2.transform.position == mainScene && Input.GetKeyDown(KeyCode.X))
             {
@@ -108,10 +108,10 @@ public class SubLayerMove3 : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.X) && (move2 == 0f))
             {
                 move2 = -0.25f;
-                subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                subLayer2Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                subLayer2Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                subLayer1Sprite1.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                subLayer1Sprite2.GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
         }
     }

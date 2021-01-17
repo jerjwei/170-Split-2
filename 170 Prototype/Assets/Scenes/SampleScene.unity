@@ -427,6 +427,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 550801119941301768, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 550801119941301768, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: subLayer1
+      value: 
+      objectReference: {fileID: 707175532}
+    - target: {fileID: 550801119941301768, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
+        type: 3}
+      propertyPath: subLayer2
+      value: 
+      objectReference: {fileID: 1961180206}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -532,7 +547,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 707175532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c47c14e6f384c1aa89e2c902956d4c, type: 3}
+  m_Script: {fileID: 11500000, guid: b1255ba8d7e984aeb806c833feb774e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layer: {fileID: 707175532}
@@ -1264,7 +1279,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961180206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c47c14e6f384c1aa89e2c902956d4c, type: 3}
+  m_Script: {fileID: 11500000, guid: b1255ba8d7e984aeb806c833feb774e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layer: {fileID: 1961180206}
