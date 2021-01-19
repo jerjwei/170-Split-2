@@ -12,11 +12,12 @@ public class DialogueTrigger : MonoBehaviour
 
     if (other.gameObject.layer == 9){
         collect_num += 1;
+        Destroy (other.gameObject);
       }
     if (collect_num == 3){
         Canvas.SetActive(true);
         Dialogbox.SetActive(true);
-        Destroy (other.gameObject);
+        //Destroy (other.gameObject);
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
       }
   }
