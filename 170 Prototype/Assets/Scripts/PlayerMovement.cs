@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     if (player.IsTouching(collectible3.GetComponent<Collider2D>()))
     {
       collectible3.SetActive(false);
-      //rb.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
   }
 

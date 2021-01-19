@@ -11,6 +11,7 @@ public class Dialog : MonoBehaviour
     public float typingSpeed;
 
     public GameObject continueButton;
+    public GameObject Dialogbox;
     public Rigidbody2D rb;
 
     void Start()
@@ -47,6 +48,7 @@ public class Dialog : MonoBehaviour
             textDisplay.text = "";
             continueButton.SetActive(false);
             rb.constraints = RigidbodyConstraints2D.None;
+            Dialogbox.SetActive(false);
         }
     }
 

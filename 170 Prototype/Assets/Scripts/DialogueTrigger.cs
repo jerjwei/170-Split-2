@@ -6,6 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
   public int collect_num = 0;
   public GameObject Canvas;
+  public GameObject Dialogbox;
   public Rigidbody2D rb;
   void OnTriggerEnter2D(Collider2D other){
 
@@ -14,8 +15,9 @@ public class DialogueTrigger : MonoBehaviour
       }
     if (collect_num == 3){
         Canvas.SetActive(true);
+        Dialogbox.SetActive(true);
         Destroy (other.gameObject);
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
       }
   }
 }
