@@ -17,8 +17,8 @@ public class DialogueTrigger : MonoBehaviour
     if (collect_num == 3){
         Canvas.SetActive(true);
         Dialogbox.SetActive(true);
-        //Destroy (other.gameObject);
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        //rb.constraints = RigidbodyConstraints2D.FreezePositionX;
       }
   }
+
 }

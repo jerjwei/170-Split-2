@@ -24,6 +24,7 @@ public class Dialog : MonoBehaviour
         if (textDisplay.text == sentences[index])
         {
             continueButton.SetActive(true);
+            
         }
     }
 
@@ -39,12 +40,16 @@ public class Dialog : MonoBehaviour
     public void NextSentence()
     {
         continueButton.SetActive(false);
+        
         if (index < sentences.Length - 1)
         {
+
             index++;
             textDisplay.text = "";
             StartCoroutine(Type());
-        }else{
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        }
+        else{
             textDisplay.text = "";
             continueButton.SetActive(false);
             rb.constraints = RigidbodyConstraints2D.None;
