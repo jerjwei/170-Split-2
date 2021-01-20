@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
   public float jumpForce = 20f;
   [Range(0,1)]
   public float jumpHeightReduce = 0.5f;
+  private bool groundCheck2 = true;
 
   //Platform Collision Variables
   public Transform feet;
@@ -43,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
     //Check if Space is pressed down and touching the ground at the same time
     if(Input.GetButtonDown("Jump") && IsGrounded()){
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+      groundCheck2 = false;
+    }
+    if(groundCheck2 == false){
+      groundCheck2 = (Physics2D.OverlapBox(feet.position, new Vector2(.5f, 1f), 0f, groundLayers) != null);
     }
     //Check if Space is released up before it reached the maximum jump height
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
@@ -94,9 +99,9 @@ public class PlayerMovement : MonoBehaviour
   }
 
   public bool IsGrounded(){
-    Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.8f, groundLayers);
+    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(4f, 1f), 0f, groundLayers);
 
-    return groundCheck != null;
+    return (groundCheck != null && groundCheck2 != false);
   }
 
 }
