@@ -1727,6 +1727,7 @@ MonoBehaviour:
   typingSpeed: 0.02
   continueButton: {fileID: 659400939}
   Dialogbox: {fileID: 51990223}
+  Door: {fileID: 1423835100}
   rb: {fileID: 1946722657}
 --- !u!4 &1019831194
 Transform:
@@ -2357,7 +2358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1423835101
 Transform:
   m_ObjectHideFlags: 0
@@ -3009,7 +3010,7 @@ PrefabInstance:
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: jumpForce
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
