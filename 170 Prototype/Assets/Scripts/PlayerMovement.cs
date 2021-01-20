@@ -46,8 +46,8 @@ public class PlayerMovement : MonoBehaviour
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
       groundCheck2 = false;
     }
-    if(groundCheck2 == false){
-      groundCheck2 = (Physics2D.OverlapBox(feet.position, new Vector2(.5f, 1f), 0f, groundLayers) != null);
+    else if(groundCheck2 == false){
+      groundCheck2 = (Physics2D.OverlapBox(feet.position, new Vector2(0.25f, .5f), 0f, groundLayers) != null);
     }
     //Check if Space is released up before it reached the maximum jump height
     if(Input.GetButtonUp("Jump") && rb.velocity.y > 0){
@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
   }
 
   public bool IsGrounded(){
-    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(4f, 1f), 0f, groundLayers);
+    Collider2D groundCheck = Physics2D.OverlapBox(feet.position, new Vector2(3.5f, 1f), 0f, groundLayers);
 
     return (groundCheck != null && groundCheck2 != false);
   }
