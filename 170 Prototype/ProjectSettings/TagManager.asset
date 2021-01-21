@@ -9,6 +9,7 @@ TagManager:
   - SecondaryCam
   - trapdoor
   - Air_Wall
+  - Switch
   layers:
   - Default
   - TransparentFX
