@@ -8,6 +8,7 @@ public class SubLayerMove : MonoBehaviour
     public Camera cam;
     public GameObject subLayer1;
     public GameObject subLayer2;
+    public GameObject Manual;
 
     Vector3 mainScene = new Vector3(0,0,0);
     Vector3 subStart1;
@@ -22,6 +23,7 @@ public class SubLayerMove : MonoBehaviour
       if(Input.GetButtonDown("ShowMap") && cam.orthographicSize == 10f){
         rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         cam.orthographicSize = 35f;
+        Manual.SetActive(true);
       }
       else if(move1 != 0f)
       {
@@ -40,6 +42,7 @@ public class SubLayerMove : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         cam.orthographicSize = 10f;
+        Manual.SetActive(false);
       }
       else if(cam.orthographicSize == 35f){
         if(subLayer1.transform.position == mainScene && Input.GetKeyDown(KeyCode.C)){

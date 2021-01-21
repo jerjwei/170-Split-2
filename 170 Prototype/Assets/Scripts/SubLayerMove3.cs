@@ -13,6 +13,7 @@ public class SubLayerMove3 : MonoBehaviour
     public GameObject subLayer1Sprite2;
     public GameObject subLayer2Sprite1;
     public GameObject subLayer2Sprite2;
+    
 
 
     public GameObject collectible;
@@ -42,6 +43,7 @@ public class SubLayerMove3 : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             cam.orthographicSize = 35f;
+            
         }
         else if (move1 != 0f)
         {
@@ -86,6 +88,7 @@ public class SubLayerMove3 : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             cam.orthographicSize = 10f;
+            
         }
         else if (cam.orthographicSize == 35f)
         {

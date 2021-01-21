@@ -13,6 +13,7 @@ public class Dialog : MonoBehaviour
     public GameObject continueButton;
     public GameObject Dialogbox;
     public Rigidbody2D rb;
+    public GameObject Door;
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class Dialog : MonoBehaviour
             continueButton.SetActive(false);
             rb.constraints = RigidbodyConstraints2D.None;
             Dialogbox.SetActive(false);
+            Door.SetActive(true);
         }
     }
 

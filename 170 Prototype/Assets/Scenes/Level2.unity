@@ -1719,15 +1719,16 @@ MonoBehaviour:
   textDisplay: {fileID: 1835903025}
   sentences:
   - 'Conversation:'
-  - 'Girl: Bla bla bla bla?'
+  - 'Girl: whats ur name?'
   - 'Cat: Miao miao miao miao.'
-  - 'Girl: Ao li gei?'
-  - 'Cat: Ye si mo la.'
-  - 'Girl: Come on Pikachiu.'
+  - 'Girl: How old are u?'
+  - 'Cat: Miao miao miao miao.'
+  - 'Girl: Lets go Hello Kitty.'
   typingSpeed: 0.02
   continueButton: {fileID: 659400939}
   Dialogbox: {fileID: 51990223}
   rb: {fileID: 1946722657}
+  Door: {fileID: 1423835100}
 --- !u!4 &1019831194
 Transform:
   m_ObjectHideFlags: 0
@@ -2357,7 +2358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1423835101
 Transform:
   m_ObjectHideFlags: 0
@@ -3009,7 +3010,7 @@ PrefabInstance:
     - target: {fileID: 550801119941301769, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
       propertyPath: jumpForce
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 550801119941301772, guid: 37f1b5ddbbe8f412380fd7fb29b42b16,
         type: 3}
